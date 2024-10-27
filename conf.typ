@@ -81,7 +81,8 @@
   set page(
     paper: "a4",
     margin: (x: 2cm, y: 2cm),
-  ) 
+  )
+  set par(spacing: 1em)
   set heading(numbering: "1.") 
   set align(center)
   block(above: 1.25em, below: 2em)[

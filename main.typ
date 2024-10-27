@@ -1,4 +1,5 @@
 #import "conf.typ": *
+#set par.line(numbering: "1")
 #show: conf.with(
   title: [
     Journal template for MarkDown with Typst
@@ -11,7 +12,7 @@
       name: [
         Kellen Parker #smallcaps([van Dam])
       ],
-      affiliations: "b,c",
+      affiliations: "a,b",
       email: "kellenparker@gmail.com",
       orcid: "0000-0002-7304-1685",
     ),
@@ -28,3 +29,11 @@
   volume: "24",
   pages: "3-12"
 )
+
+= Introduction
+
+#lorem(50)
+
+#lorem(100)
+
+#lorem(150)
