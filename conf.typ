@@ -8,6 +8,9 @@
   }
   link("https://orcid.org/" + orcid)[#box(height: .7em, baseline: -20%)[#image.decode(orcidSvg)]]
 }
+#let autocite(key) = {cite(label(key),form: "author")+" ("+cite(label(key),form: "year")+")"}
+#let citep(key) = {"("+cite(label(key),form: "author")+" "+cite(label(key),form: "year")+")"}
+#let citeyear(key) = {cite(label(key),form: "year")}
 #let titlepage_authors(authors,affiliations) = {
   if authors.len() > 0 {
     for author in authors [
@@ -41,7 +44,7 @@
 }
 #let display_authors(authors) = {
   if authors.len() > 0 {
-    block()[
+    block(above: 1em, below: 0.5em)[
       #authors.map(author => {
         author.name
         h(1pt)
@@ -57,7 +60,7 @@
 }
 #let display_affiliations(affiliations) = {
   if affiliations.len() > 0 {
-    block()[
+    block(below: 2em)[
       #affiliations.map(affiliation => {
         super(affiliation.id)
         h(1pt)
@@ -86,7 +89,7 @@
   set heading(numbering: "1.") 
   set align(center)
   block(above: 1.25em, below: 2em)[
-    #image("logo.svg", width: 60%)
+    #image("logo.svg", width: 50%)
   ]
   block(width: 400pt, below: 3em)[
     #set par(
@@ -169,6 +172,9 @@
       #counter(heading).display() #it.body
     ]
   ]
+  let heading_alt(textvalue) = {
+    block(above: 1.65em, below: 0.75em)[#text(size: 13pt, weight: "bold", textvalue)]
+  }
   show heading.where(level: 2): it => [
     #set text(size: 12pt, weight: "bold")
     #block(above: 1.25em, below: 0.75em)[
@@ -208,7 +214,7 @@
   set par(
     justify: true,
     leading: 0.65em,
-    first-line-indent: 1em,
+    first-line-indent: 0em, // this should be 1em for most cases
     linebreaks: "optimized",
   )
   set align(left)
@@ -228,5 +234,11 @@
   set block(spacing: 1em)
   set align(left)
   counter(page).update(10)
+  
   doc
+
+  set par(justify: false, leading: 0.65em, first-line-indent: 0em, linebreaks: "optimized")
+  
+  heading_alt("References")
+  bibliography("refs.bib", style: "apa", title: none)
 }

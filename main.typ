@@ -2,7 +2,7 @@
 #set par.line(numbering: "1")
 #show: conf.with(
   title: [
-    Journal template for MarkDown with Typst
+    Journal template for Typst markup
   ],
   authors_short: [
     van Dam
@@ -32,8 +32,30 @@
 
 = Introduction
 
+Citations are in APA format. New commands have been written for author plus year in parentheses, i.e. #autocite("abramson2004plausibility"), full enclosed in parentheses #citep("abramson1977diachronic"), or just the year, e.g. #citeyear("acconedarryl2006ghost") for #autocite("acconedarryl2006ghost").
+
+= Second heading
+
 #lorem(50)
+
+#lorem(150)
 
 #lorem(100)
 
+#lorem(50)
+
 #lorem(150)
+
+#lorem(100)
+
+#lorem(50)
+
+#lorem(150)
+
+#lorem(100)
+
+#lorem(50)
+
+#lorem(150)
+
+#lorem(100)
